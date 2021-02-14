@@ -3,11 +3,13 @@
   "version": "8.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:stats": "ng build --aot --prod --stats-json",
+    "analyze": "webpack-bundle-analyzer dist/shreyu/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -100,5 +102,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.5"
+  },
+  "engines": {
+    "node": "14.6.0",
+    "npm": "6.14.6"
   }
 }
