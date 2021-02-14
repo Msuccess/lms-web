@@ -1,0 +1,7 @@
+<button class="btn btn-primary btn-block mb-4" type="submit" [disabled]="isDisabled" [type]="buttonType"
+  (click)="handleClick()">
+  <span *ngIf="!isDisabled">
+    <ng-content></ng-content>
+  </span>
+  <span *ngIf="isDisabled" class="spinner-border text-light ml-2"> </span>
+</button>

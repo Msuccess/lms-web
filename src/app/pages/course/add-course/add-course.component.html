@@ -1,0 +1,73 @@
+<form [formGroup]="addCourseForm" (submit)="onSubmit()">
+
+  <div class="row btn-page">
+    <div class="col-12">
+      <app-card cardTitle="Add Course" cardClass="card-datatable" [options]="false">
+        <div>
+          <div class="row col-12">
+
+            <div class="col-sm-12">
+              <div class="form-group fill">
+                <input type="text" class="form-control" placeholder="Course Title" formControlName="title"
+                  [ngClass]="{'is-invalid': formControls.title.errors && submitted}">
+                <div *ngIf="submitted && formControls.title.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.title.errors.required">
+                    Please enter course title.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <input type="email" class="form-control" placeholder="Subject" formControlName="subject"
+                  [ngClass]="{'is-invalid': formControls.subject.errors && submitted}">
+                <div *ngIf="submitted && formControls.subject.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.subject.errors.required">
+                    Please choose course subject.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <input type="text" class="form-control" placeholder="Related Classes" formControlName="relatedClass"
+                  [ngClass]="{'is-invalid': formControls.relatedClass.errors && submitted}">
+                <div *ngIf="submitted && formControls.relatedClass.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.relatedClass.errors.required">
+                    Please Choose related classes.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea class="form-control" formControlName="description"
+                  placeholder="Brief Description About the This Course"
+                  [ngClass]="{'is-invalid': formControls.description.errors && submitted}"></textarea>
+                <div *ngIf="submitted && formControls.description.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.description.errors.required">
+                    Please Choose related classes.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <file-upload formControlName="course"></file-upload>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+          <!-- <app-button [buttonType]="'submit'" (clicked)="onSubmit()" [isDisabled]="loading|async">Sign Up</app-button> -->
+        </div>
+
+      </app-card>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,29 @@
+ 
+ ul#pills-tab {
+       list-style: none;
+    display: flex;
+    flex-wrap: initial;
+    padding-left: initial;
+}
+
+ .nav-pills > li > a.active {
+    border-top-color: #ee1044;
+    background-color: #ee1044 !important;
+    color: #ffffff;
+}
+
+.course-nav > li > a:hover, .course-nav > li > a:active, .course-nav > li > a:focus, .course-nav > li > a.active {
+    color: #ffffff !important;
+    background: #03a9f5;
+    cursor: pointer;
+}
+
+div#pills-tabContent {
+    margin-top: 30px;
+}
+
+@media (min-width: 768px){
+.h-md-auto {
+    height: auto !important;
+}
+}

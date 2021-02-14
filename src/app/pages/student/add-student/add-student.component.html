@@ -1,0 +1,118 @@
+<form [formGroup]="registrationForm" (submit)="onSubmit()">
+
+  <div class="row btn-page">
+    <div class="col-sm-12">
+      <app-card cardTitle="Add Student" cardClass="card-datatable" [options]="false">
+
+
+        <div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <input type="text" class="form-control" placeholder="Name" formControlName="fullName"
+                  [ngClass]="{'is-invalid': formControls.fullName.errors && submitted}">
+                <div *ngIf="submitted && formControls.fullName.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.fullName.errors.required">
+                    Please enter your full name.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Class" formControlName="class"
+                  [ngClass]="{'is-invalid': formControls.class.errors && submitted}">
+                <div *ngIf="submitted && formControls.class.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.class.errors.required">
+                    Please enter your class.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <div class="input-group">
+                  <input class="form-control" name="dp" placeholder="Date Of Birth" formControlName="dateOfBirth"
+                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                    [ngClass]="{'is-invalid': formControls.dateOfBirth.errors && submitted}">
+                  <div class="input-group-append">
+                    <a href="javascript:0;" class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                      type="button">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div *ngIf="submitted && formControls.dateOfBirth.errors" class="invalid-feedback">
+                    <div *ngIf="formControls.dateOfBirth.errors.required">
+                      Please choose your Date Of Birth.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <input type="email" class="form-control" placeholder="Guardian Email" formControlName="email"
+                  [ngClass]="{'is-invalid': formControls.email.errors && submitted}">
+                <div *ngIf="submitted && formControls.email.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.email.errors.required">
+                    Please choose your email.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group fill">
+                <input type="text" class="form-control" placeholder="Guardian Contact" formControlName="phoneNumber"
+                  [ngClass]="{'is-invalid': formControls.phoneNumber.errors && submitted}">
+                <div *ngIf="submitted && formControls.phoneNumber.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.phoneNumber.errors.required">
+                    Please Enter Valid Phone Number.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <select class="form-control" formControlName="gender" placeholder="Select Sex">
+                  <option selected>Select Sex</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" formControlName="username"
+                  [ngClass]="{'is-invalid': formControls.username.errors && submitted}">
+                <div *ngIf="submitted && formControls.username.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.username.errors.required">
+                    Please enter your username.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Password" formControlName="password"
+                  [ngClass]="{'is-invalid': formControls.password.errors && submitted}">
+                <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.password.errors.required">
+                    Please enter your password.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+          <!-- <app-button [buttonType]="'submit'" (clicked)="onSubmit()" [isDisabled]="loading|async">Sign Up</app-button> -->
+        </div>
+
+      </app-card>
+    </div>
+  </div>
+
+</form>

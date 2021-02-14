@@ -1,0 +1,13 @@
+<div class="notyf__toast notyf__toast--success notyf__toast" data-cy="notify">
+  <div class="notyf__wrapper">
+    <div class="notyf__icon">
+      <i [ngClass]="options.messageClass ==='success'?'notyf__icon--success':'notyf__icon--error'"
+        [style.color]="options.messageClass ==='success' ? '#13d596' : '#eb5757'"></i>
+    </div>
+    <div class="d-flex flex-column">
+      <h5 class="text-light mb-1">{{ title | titlecase }}</h5>
+      <div class="notyf__message text-light">{{ message }}</div>
+    </div>
+  </div>
+  <div class="notyf__ripple" [style.background-color]="options.messageClass ==='success' ? '#13d596' : '#eb5757'"></div>
+</div>

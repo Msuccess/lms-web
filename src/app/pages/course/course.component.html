@@ -1,0 +1,50 @@
+<section class="py-50">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="bg-light p-10 d-lg-flex justify-content-between align-items-center mb-20 rounded">
+              <p class="mb-lg-0 mb-20 pl-2">Showing 1 to 12 of 36 entries</p>
+              <div class="d-flex justify-lg-content-end align-items-center">
+                <select class="custom-select w-150">
+                  <option selected>Sort By...</option>
+                  <option value="1">New</option>
+                  <option value="2">Top Rated</option>
+                  <option value="3">Popular</option>
+                </select>
+                <ul class="course-nav nav-pills" id="pills-tab" role="tablist">
+                  <li class="nav-item pt-3 mx-2" role="presentation" (click)="selectedView('grid')">
+                    <a class="nav-link b-0 font-size-18" [ngClass]="{'active': view === 'grid'}">
+                      <i class="fa fa-th mr-0"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item mr-5 pt-3" role="presentation" (click)="selectedView('list')">
+                    <a class="nav-link b-0 font-size-18" [ngClass]="{'active': view === 'list'}">
+                      <i class="fa fa-list mr-0"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+
+              <app-course-list *ngIf="view === 'list'"></app-course-list>
+              <app-course-grid *ngIf="view === 'grid'"></app-course-grid>
+            </div>
+            <!-- <div aria-label="Page navigation example">
+                            <ul class="pagination mb-0">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<div class="card-body">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink class="f-20">School</a>
+      <ng-template ngbNavContent>
+        <div class="d-flex justify-content-between pt-4">
+          <h4 class="mb-3 f-w-400">Sign up</h4>
+          <a href="javascript:" (click)="goBack()">
+            <i class="fa fa-arrow-circle-left font-weight-bold f-20" aria-hidden="true"></i>
+          </a>
+        </div>
+        <app-institution-sign-up></app-institution-sign-up>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink class="f-20">Student</a>
+      <ng-template ngbNavContent>
+        <div class="d-flex justify-content-between pt-4">
+          <h4 class="mb-3 f-w-400">Sign up</h4>
+          <a href="javascript:" (click)="goBack()">
+            <i class="fa fa-arrow-circle-left font-weight-bold f-20" aria-hidden="true"></i>
+          </a>
+        </div>
+        <app-individual-sign-up></app-individual-sign-up>
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</div>
