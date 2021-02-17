@@ -18,13 +18,13 @@ export class AuthService {
     this.authEndpoint = new AuthEndPoints();
   }
 
-  public signin(credential: any): Observable<any> {
+  public signIn(credential: any): Observable<any> {
     return this.httpClient
       .post(this.authEndpoint.API_AUTH_LOGIN, credential)
       .pipe(
         tap((res: any) => {
-          this.tokenStorage.setAccessToken(res.token, true);
-          this.tokenStorage.setUser(res.user, true);
+          this.tokenStorage.setAccessToken(res.data.token, true);
+          this.tokenStorage.setUser(res.data.dbUser, true);
         }),
         catchError((err) => {
           return throwError(err);
@@ -32,15 +32,11 @@ export class AuthService {
       );
   }
 
-  public signup(credential: any): Observable<any> {
+  public signUp(credential: any): Observable<any> {
     const newCredential = { ...credential };
     return this.httpClient
       .post(this.authEndpoint.API_AUTH_REGISTER, newCredential)
       .pipe(
-        tap((res: any) => {
-          this.tokenStorage.setAccessToken(res.token, true);
-          this.tokenStorage.setUser(res.user, true);
-        }),
         catchError((err) => {
           return throwError(err);
         })

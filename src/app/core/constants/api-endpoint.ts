@@ -2,7 +2,7 @@ import { environment } from '../../../environments/environment';
 export class AuthEndPoints {
   API_AUTH_BASE = environment.authBaseUrl;
   API_AUTH_LOGIN = this.API_AUTH_BASE + 'login/';
-  API_AUTH_REGISTER = this.API_AUTH_BASE + 'register';
+  API_AUTH_REGISTER = this.API_AUTH_BASE + 'register/';
   API_AUTH_LOGOUT = this.API_AUTH_BASE + 'logout/';
   API_AUTH_CHANGE_PASSWORD = this.API_AUTH_BASE + 'password/change/';
   API_AUTH_RESET_PASSWORD = this.API_AUTH_BASE + 'password/reset/';

@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private auth: AuthService,
+    private authService: AuthService,
     private errorService: ErrorService,
     private router: Router
   ) {}
 
   initSignInForm(): void {
     this.signInForm = this.formBuilder.group({
-      username: [this.user.username, Validators.compose([Validators.required])],
+      username: [this.user.username, [Validators.required]],
       password: [
         this.user.password,
         Validators.compose([Validators.required, Validators.minLength(8)]),
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     }
     this.loading.next(true);
 
-    this.auth.signin(this.signInForm.value).subscribe(
+    this.authService.signIn(this.signInForm.value).subscribe(
       (res: any) => {
         this.loading.next(false);
         this.router.navigate(['/app/dashboard']);

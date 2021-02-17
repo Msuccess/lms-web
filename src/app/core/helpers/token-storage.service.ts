@@ -98,11 +98,16 @@ export class TokenStorage {
    * Set access token
    * @returns TokenStorage
    */
-  public setAccessToken(token: string, rememberMe?: boolean): TokenStorage {
+  public setAccessToken(
+    token: { token: string; expiresIn: string },
+    rememberMe?: boolean
+  ): TokenStorage {
     if (rememberMe) {
-      localStorage.setItem('accessToken', token);
+      localStorage.setItem('accessToken', token.token);
+      debugger;
     } else {
-      localStorage.setItem('accessToken', token);
+      localStorage.setItem('accessToken', token.token);
+      debugger;
     }
 
     return this;
@@ -112,11 +117,19 @@ export class TokenStorage {
    * Set refresh token
    * @returns TokenStorage
    */
-  public setRefreshToken(token: string, rememberMe?: boolean): TokenStorage {
+  public setRefreshToken(
+    token: {
+      token: string;
+      expiresIn: string;
+    },
+    rememberMe: boolean
+  ): TokenStorage {
     if (rememberMe) {
-      localStorage.setItem('refreshToken', token);
+      localStorage.setItem('refreshToken', token.token);
+      debugger;
     } else {
-      localStorage.setItem('refreshToken', token);
+      localStorage.setItem('refreshToken', token.token);
+      debugger;
     }
 
     return this;

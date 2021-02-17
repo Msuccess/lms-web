@@ -1,18 +1,18 @@
-import { ErrorService } from './../../../../../core/services/error.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthModel } from '../../../model/auth.model';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../service/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
+import { ErrorService } from 'src/app/core/services/error.service';
+import { AuthModel } from '../../../model/auth.model';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
-  selector: 'app-individual-sign-up',
-  templateUrl: './individual-sign-up.component.html',
-  styleUrls: ['./individual-sign-up.component.scss'],
+  selector: 'app-teacher-sign-up',
+  templateUrl: './teacher-sign-up.component.html',
+  styleUrls: ['./teacher-sign-up.component.scss'],
 })
-export class IndividualSignUpComponent implements OnInit {
+export class TeacherSignUpComponent implements OnInit {
   user = {} as AuthModel;
   signUpForm: FormGroup;
   submitted = false;

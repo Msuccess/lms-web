@@ -14,6 +14,7 @@ import { NgbDatepickerModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SelectModule } from 'ng-select';
 import { InstitutionSignUpComponent } from './register/partials/institution-sign-up/institution-sign-up.component';
+import { TeacherSignUpComponent } from './register/partials/teacher-sign-up/teacher-sign-up.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { InstitutionSignUpComponent } from './register/partials/institution-sign
     ResetPasswordComponent,
     InstitutionSignUpComponent,
     IndividualSignUpComponent,
+    TeacherSignUpComponent,
   ],
 })
 export class AuthModule {}

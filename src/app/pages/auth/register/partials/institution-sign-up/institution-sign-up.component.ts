@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-institution-sign-up',
@@ -24,7 +25,8 @@ export class InstitutionSignUpComponent implements OnInit {
     private errorService: ErrorService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private location: Location
+    private location: Location,
+    private toastrService: ToastrService
   ) {}
 
   initSignUpForm(): void {
@@ -39,7 +41,10 @@ export class InstitutionSignUpComponent implements OnInit {
         this.user.phoneNumber,
         Validators.compose([Validators.required, Validators.minLength(8)]),
       ],
-      password: [this.user.password, Validators.required],
+      password: [
+        this.user.password,
+        Validators.compose([Validators.required, Validators.minLength(8)]),
+      ],
       role: ['institution'],
     });
   }
@@ -55,13 +60,16 @@ export class InstitutionSignUpComponent implements OnInit {
     }
     this.loading.next(true);
     console.log(this.signUpForm.value);
-    this.authService.signup(this.signUpForm.value).subscribe(
+    this.authService.signUp(this.signUpForm.value).subscribe(
       (res: any) => {
         this.loading.next(false);
-        this.router.navigate(['/app/dashboard']);
+        this.toastrService.success('Success', 'Registered Successfully');
+        this.router.navigate(['/auth/login']);
       },
       (error: any) => {
+        console.log(error);
         this.loading.next(false);
+        this.toastrService.error('Error', 'Review the errors on this page ');
         this.errors.next(this.errorService.getErrors(error.error));
       }
     );

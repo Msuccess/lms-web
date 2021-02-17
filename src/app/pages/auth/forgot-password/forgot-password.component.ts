@@ -27,53 +27,53 @@ export class ForgotPasswordComponent implements OnInit {
     private notify: NotificationService
   ) {}
 
-  initResetPasswordForm(): void {
-    this.resetPasswordForm = this.formBuilder.group({
-      email: [
-        this.user.email,
-        Validators.compose([Validators.required, Validators.email]),
-      ],
-    });
-  }
+  // initResetPasswordForm(): void {
+  //   this.resetPasswordForm = this.formBuilder.group({
+  //     email: [
+  //       this.user.email,
+  //       Validators.compose([Validators.required, Validators.email]),
+  //     ],
+  //   });
+  // }
 
-  get formControl(): any {
-    return this.resetPasswordForm.controls;
-  }
+  // get formControl(): any {
+  //   return this.resetPasswordForm.controls;
+  // }
 
-  onSubmit(): void {
-    this.submitted = true;
-    if (this.resetPasswordForm.invalid) {
-      return;
-    }
-    this.loading.next(true);
+  // onSubmit(): void {
+  //   this.submitted = true;
+  //   if (this.resetPasswordForm.invalid) {
+  //     return;
+  //   }
+  //   this.loading.next(true);
 
-    this.auth.resetPassword(this.resetPasswordForm.value).subscribe(
-      (res: any) => {
-        this.loading.next(false);
-        this.notify.success(
-          'Reset Link Sent',
-          'Check your email password reset instructions.'
-        );
-        this.router.navigate(['/auth/emailsent'], {
-          queryParams: {
-            email: this.resetPasswordForm.value.email,
-            mode: 'resetPassword',
-          },
-        });
-      },
-      (error: any) => {
-        console.log('Error', error);
-        this.loading.next(false);
-        // this.errors.next(this.errorService.getErrors(error.error));
-      }
-    );
-  }
+  //   this.auth.resetPassword(this.resetPasswordForm.value).subscribe(
+  //     (res: any) => {
+  //       this.loading.next(false);
+  //       this.notify.success(
+  //         'Reset Link Sent',
+  //         'Check your email password reset instructions.'
+  //       );
+  //       this.router.navigate(['/auth/emailsent'], {
+  //         queryParams: {
+  //           email: this.resetPasswordForm.value.email,
+  //           mode: 'resetPassword',
+  //         },
+  //       });
+  //     },
+  //     (error: any) => {
+  //       console.log('Error', error);
+  //       this.loading.next(false);
+  //       // this.errors.next(this.errorService.getErrors(error.error));
+  //     }
+  //   );
+  // }
 
-  closeAlert(): any {
-    this.errors.next([]);
-  }
+  // closeAlert(): any {
+  //   this.errors.next([]);
+  // }
 
   ngOnInit(): void {
-    this.initResetPasswordForm();
+    // this.initResetPasswordForm();
   }
 }
