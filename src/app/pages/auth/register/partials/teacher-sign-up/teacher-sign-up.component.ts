@@ -30,7 +30,6 @@ export class TeacherSignUpComponent implements OnInit {
   initSignUpIndividualForm(): void {
     this.signUpForm = this.formBuilder.group({
       fullName: [this.user.fullName, Validators.required],
-      userClass: [this.user.class],
       username: [this.user.username, Validators.required],
       email: [
         this.user.email,
@@ -43,7 +42,7 @@ export class TeacherSignUpComponent implements OnInit {
       ],
       gender: [this.user.gender],
       dateOfBirth: [this.user.dateOfBirth],
-      role: 'student',
+      role: 'teacher',
     });
   }
 
