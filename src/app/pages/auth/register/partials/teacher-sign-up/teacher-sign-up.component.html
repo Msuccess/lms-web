@@ -48,30 +48,8 @@
     </div>
 
     <div class="form-group mb-4">
-      <label for="inputState">Class</label>
-      <select name="select" class="form-control" formControlName="userClass"
-        [ngClass]="{'is-invalid': formControl.phoneNumber.errors && submitted}">
-        <option selected>Select Class</option>
-        <option value="opt2">Type 2</option>
-        <option value="opt3">Type 3</option>
-        <option value="opt4">Type 4</option>
-        <option value="opt5">Type 5</option>
-        <option value="opt6">Type 6</option>
-        <option value="opt7">Type 7</option>
-        <option value="opt8">Type 8</option>
-      </select>
-      <div *ngIf="submitted && formControl.phoneNumber.errors" class="invalid-feedback">
-        <div *ngIf="formControl.phoneNumber.errors.required">
-          Please provide class.
-        </div>
-      </div>
-
-    </div>
-
-    <div class="form-group mb-4">
-      <label for="inputState">Gender</label>
-      <select class="form-control" formControlName="gender">
-        <option selected>Select Gender</option>
+      <select class="form-control form-control-default" formControlName="gender">
+        <option value="">Select Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="others">Others</option>
