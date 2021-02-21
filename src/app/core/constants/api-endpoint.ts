@@ -12,13 +12,9 @@ export class AuthEndPoints {
   API_AUTH_RESEND_OTP_PHONE = environment.baseUrl + '/users/send_otp/';
 }
 
-// export class ApiEndPoints {
-//   API_BASE_URL = environment.baseUrl;
-//   API_ORGANIZATIONS = this.API_BASE_URL + '/organizations/';
-//   API_VOUCHER = this.API_BASE_URL + '/merch_vouchers/';
-//   API_GET_API_KEYS = this.API_BASE_URL + '/organizations/get_api_keys/';
-//   API_REVOKE_API_KEY = this.API_BASE_URL + '/organizations/revoke_api_key/';
-//   API_SUBSCRIPTION = this.API_BASE_URL + '/subscriptions/transaction/';
-//   API_GENERATE_API_KEYS =
-//     this.API_BASE_URL + '/organizations/generate_api_key/';
-// }
+export class ApiEndPoints {
+  API_BASE_URL = environment.baseUrl;
+  API_ADD_CLASS = this.API_BASE_URL + 'users-class/';
+  API_ADD_TEACHER = this.API_BASE_URL + '/teacher/';
+  API_ADD_STUDENT = this.API_BASE_URL + '/student/';
+}

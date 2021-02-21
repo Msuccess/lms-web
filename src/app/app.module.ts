@@ -10,6 +10,7 @@ import { AuthModule } from './pages/auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { PagesModule } from './pages/pages.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     LayoutModule,
     AuthModule,
+    PagesModule,
   ],
   bootstrap: [AppComponent],
 })

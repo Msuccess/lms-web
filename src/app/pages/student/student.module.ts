@@ -8,16 +8,18 @@ import { StudentRoutingModule } from './student-routing.module';
 import { StudentComponent } from './student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [StudentComponent, AddStudentComponent],
   imports: [
     CommonModule,
+    RouterModule,
     StudentRoutingModule,
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
   ],
 })
 export class StudentModule {}

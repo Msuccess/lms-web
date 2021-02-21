@@ -1,0 +1,31 @@
+<form [formGroup]="newClassForm" (submit)="onSubmit()">
+
+    <div class="row btn-page">
+        <div class="col-md-6 col-sm-12">
+            <app-card cardTitle="{{action}} Class" cardClass="card-datatable" [options]="false">
+                <div>
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <div class="form-group fill">
+                                <input type="text" class="form-control" placeholder="Class Name"
+                                    formControlName="className"
+                                    [ngClass]="{'is-invalid': formControls.className.errors && submitted}">
+                                <div *ngIf="submitted && formControls.className.errors" class="invalid-feedback">
+                                    <div *ngIf="formControls.className.errors.required">
+                                        Please enter your CLass name.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+
+            </app-card>
+        </div>
+    </div>
+
+</form>

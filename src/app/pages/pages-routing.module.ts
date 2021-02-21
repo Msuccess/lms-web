@@ -28,6 +28,13 @@ const routes: Routes = [
       import('./document/document.module').then((m) => m.DocumentModule),
   },
   {
+    path: 'class',
+    loadChildren: () =>
+      import('./users-class/users-class.module').then(
+        (m) => m.UsersClassModule
+      ),
+  },
+  {
     path: 'settings',
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),
