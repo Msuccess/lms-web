@@ -20,11 +20,14 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Class" formControlName="class"
-                  [ngClass]="{'is-invalid': formControls.class.errors && submitted}">
-                <div *ngIf="submitted && formControls.class.errors" class="invalid-feedback">
-                  <div *ngIf="formControls.class.errors.required">
-                    Please enter your class.
+                <select class="form-control" formControlName="userClass"
+                  [ngClass]="{'is-invalid': formControls.userClass.errors && submitted}">
+                  <option *ngFor="let class of classList" value="{{class.id}}">{{class.className}}</option>
+
+                </select>
+                <div *ngIf="submitted && formControls.userClass.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.userClass.errors.required">
+                    Please Select your class.
                   </div>
                 </div>
               </div>
@@ -94,7 +97,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Password" formControlName="password"
+                <input type="password" class="form-control" placeholder="Password" formControlName="password"
                   [ngClass]="{'is-invalid': formControls.password.errors && submitted}">
                 <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
                   <div *ngIf="formControls.password.errors.required">
