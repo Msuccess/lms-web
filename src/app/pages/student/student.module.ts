@@ -9,6 +9,7 @@ import { StudentComponent } from './student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { SelectModule } from 'ng-select';
 
 @NgModule({
   declarations: [StudentComponent, AddStudentComponent],
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     FormsModule,
     NgbDatepickerModule,
+    SelectModule,
   ],
 })
 export class StudentModule {}

@@ -20,11 +20,20 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <select class="form-control" formControlName="userClass"
+                <!-- <ng-select [items]="classList" [selectOnTab]="true" bindValue="id" labelForId="className" placeholder="Select Class" formControlName="userClass">
+                  </ng-select> -->
+                <!-- <ng-select [options]="classList" bindValue="classList.id" labelForId="classList.className"
+                  placeholder="Select Class" formControlName="userClass">
+                </ng-select> -->
+                <!-- <ng-select class="form-control" placeholder="Select Class"
+                  formControlName="userClass">
+                    <ng-option *ngFor="let class of classList" [value]="class.id">{{class.name}}</ng-option>
+                </ng-select> -->
+                <!-- <select class="form-control" formControlName="userClass"
                   [ngClass]="{'is-invalid': formControls.userClass.errors && submitted}">
                   <option *ngFor="let class of classList" value="{{class.id}}">{{class.className}}</option>
 
-                </select>
+                </select> -->
                 <div *ngIf="submitted && formControls.userClass.errors" class="invalid-feedback">
                   <div *ngIf="formControls.userClass.errors.required">
                     Please Select your class.
@@ -35,15 +44,9 @@
             <div class="col-sm-6">
               <div class="form-group fill">
                 <div class="input-group">
-                  <input class="form-control" name="dp" placeholder="Date Of Birth" formControlName="dateOfBirth"
-                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                  <input type="date" class="form-control" name="dp" placeholder="Date Of Birth"
+                    formControlName="dateOfBirth"
                     [ngClass]="{'is-invalid': formControls.dateOfBirth.errors && submitted}">
-                  <div class="input-group-append">
-                    <a href="javascript:0;" class="btn btn-outline-secondary calendar" (click)="d.toggle()"
-                      type="button">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-                    </a>
-                  </div>
                   <div *ngIf="submitted && formControls.dateOfBirth.errors" class="invalid-feedback">
                     <div *ngIf="formControls.dateOfBirth.errors.required">
                       Please choose your Date Of Birth.
@@ -110,7 +113,7 @@
         </div>
         <div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
           <!-- <app-button [buttonType]="'submit'" (clicked)="onSubmit()" [isDisabled]="loading|async">Sign Up</app-button> -->
         </div>
 

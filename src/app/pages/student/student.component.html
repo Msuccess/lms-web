@@ -9,31 +9,31 @@
         </div>
       </div>
       <div class="table-responsive">
-        <table datatable id="report-table" class="table table-bordered table-striped mb-0">
+        <table id="report-table" class="table table-bordered table-striped mb-0 hover" datatable>
           <thead>
             <tr>
               <th>Name</th>
+              <th>Class</th>
+              <!-- <th>Gender</th> -->
               <th>Email</th>
-              <th>Roll</th>
-              <th>Sex</th>
+              <th>Contact</th>
               <th>Birth Date</th>
-              <th>Age</th>
-              <th>Blood Group</th>
               <th>Options</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Tanvir Hasan</td>
-              <td>patient@example.com</td>
-              <td>9876543</td>
-              <td>female</td>
-              <td>13/09/1994</td>
-              <td>54</td>
-              <td>o+</td>
+            <tr *ngFor="let student of studentsList">
+              <td>{{student.fullName}}</td>
+              <td>{{student.userClass}}</td>
+              <!-- <td>{{student.gender}}</td> -->
+              <td>{{student.email}}</td>
+              <td>{{student.phoneNumber}}</td>
+              <td>{{student.dateOfBirth}}</td>
+
               <td>
-                <a href="javascript:" class="btn btn-info btn-sm">Edit</a>
-                <a href="javascript:" class="btn btn-danger btn-sm">Delete</a>
+                <a href="javascript:" class="btn btn-info btn-sm" (click)="editStudent(student.id)">Edit</a>
+                <a href="javascript:" class="btn btn-danger btn-sm"
+                  (click)="deleteStudent(student.id,student.fullName)">Delete</a>
               </td>
             </tr>
 

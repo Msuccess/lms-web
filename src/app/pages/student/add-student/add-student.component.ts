@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IOption } from 'ng-select';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { AuthModel } from '../../auth/model/auth.model';
@@ -101,13 +102,13 @@ export class AddStudentComponent implements OnInit {
       },
       (error: any) => {
         this.loading.next(false);
-        this.toastrService.error('Error', 'Class Already Exists');
+        this.toastrService.error('Error', 'Something went wrong');
       }
     );
   }
 
   onCancel() {
-    this.router.navigate(['/app/class/list']);
+    this.router.navigate(['/app/student/list']);
   }
 
   checkEditAction() {
