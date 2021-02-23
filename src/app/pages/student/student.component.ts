@@ -19,14 +19,10 @@ export class StudentComponent implements OnInit {
 
   studentsList: any[];
 
-  dtOptions: any = {};
-  dtTrigger: Subject<any> = new Subject<any>();
-
   getStudents() {
     this.studentService.getAllStudents().subscribe(
       (res: any) => {
         this.studentsList = res.data;
-        this.dtTrigger.next();
         console.log(this.studentsList);
       },
       (error: any) => {
@@ -71,11 +67,5 @@ export class StudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudents();
-    this.dtOptions = { pageLength: 2 };
-  }
-
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    this.dtTrigger.unsubscribe();
   }
 }

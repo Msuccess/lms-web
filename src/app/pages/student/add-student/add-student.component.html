@@ -20,20 +20,13 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <!-- <ng-select [items]="classList" [selectOnTab]="true" bindValue="id" labelForId="className" placeholder="Select Class" formControlName="userClass">
-                  </ng-select> -->
-                <!-- <ng-select [options]="classList" bindValue="classList.id" labelForId="classList.className"
-                  placeholder="Select Class" formControlName="userClass">
-                </ng-select> -->
-                <!-- <ng-select class="form-control" placeholder="Select Class"
-                  formControlName="userClass">
-                    <ng-option *ngFor="let class of classList" [value]="class.id">{{class.name}}</ng-option>
-                </ng-select> -->
-                <!-- <select class="form-control" formControlName="userClass"
-                  [ngClass]="{'is-invalid': formControls.userClass.errors && submitted}">
-                  <option *ngFor="let class of classList" value="{{class.id}}">{{class.className}}</option>
 
-                </select> -->
+
+                <select name="select" class="form-control form-control-default" formControlName="userClass"
+                  [ngClass]="{'is-invalid': formControls.userClass.errors && submitted}">
+                  <option value="opt1">Select One Value Only</option>
+                  <option *ngFor="let class of classList" value="{{class.id}}">{{class.className}}</option>
+                </select>
                 <div *ngIf="submitted && formControls.userClass.errors" class="invalid-feedback">
                   <div *ngIf="formControls.userClass.errors.required">
                     Please Select your class.
@@ -79,11 +72,17 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <select class="form-control" formControlName="gender" placeholder="Select Sex">
-                  <option selected>Select Sex</option>
+                <select name="select" class="form-control form-control-default" formControlName="gender"
+                  [ngClass]="{'is-invalid': formControls.gender.errors && submitted}">
+                  <option value="opt1">Select One Value Only</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
+                <div *ngIf="submitted && formControls.gender.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.gender.errors.required">
+                    Please Select your Gender.
+                  </div>
+                </div>
               </div>
             </div>
 

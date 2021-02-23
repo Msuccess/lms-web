@@ -53,7 +53,7 @@ export class AddStudentComponent implements OnInit {
         this.newStudent.password,
         Validators.compose([Validators.required, Validators.minLength(8)]),
       ],
-      gender: [this.newStudent.gender],
+      gender: [this.newStudent.gender, [Validators.required]],
       dateOfBirth: [this.newStudent.dateOfBirth, Validators.required],
       role: 'student',
     });

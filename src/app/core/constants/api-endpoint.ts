@@ -17,4 +17,6 @@ export class ApiEndPoints {
   API_ADD_CLASS = this.API_BASE_URL + 'users-class/';
   API_ADD_TEACHER = this.API_BASE_URL + 'teacher/';
   API_ADD_STUDENT = this.API_BASE_URL + 'student/';
+  API_UPLOAD_DOCUMENT = this.API_BASE_URL + 'upload/document/';
+  API_UPLOAD_COURSE = this.API_BASE_URL + 'upload/course/';
 }

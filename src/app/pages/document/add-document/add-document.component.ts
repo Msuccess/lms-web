@@ -8,6 +8,7 @@ import {
 import { FileUploadValidators } from '@iplab/ngx-file-upload';
 import { BehaviorSubject } from 'rxjs';
 import { DocumentModel } from '../models/document.model';
+import { DocumentService } from '../services/document.service';
 
 @Component({
   selector: 'app-add-document',
@@ -20,13 +21,17 @@ export class AddDocumentComponent implements OnInit {
   submitted: boolean = false;
   loading = new BehaviorSubject<Boolean>(false);
   error = new BehaviorSubject<any>([]);
+  documentData: File = null;
 
-  private filesControl = new FormControl(
+  private fileUploadControl = new FormControl(
     null,
-    FileUploadValidators.filesLimit(2)
+    FileUploadValidators.filesLimit(1)
   );
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private documentService: DocumentService
+  ) {}
 
   initCreateStudentForm(): void {
     this.addDocumentForm = this.formBuilder.group({
@@ -34,7 +39,7 @@ export class AddDocumentComponent implements OnInit {
       subject: [this.newDocument.subject, Validators.required],
       description: [this.newDocument.description, Validators.required],
       relatedClass: [this.newDocument.relatedClass, Validators.required],
-      document: this.filesControl,
+      // document: [this.fileUploadControl, Validators.required],
     });
   }
 
@@ -44,6 +49,12 @@ export class AddDocumentComponent implements OnInit {
       return;
     } else {
       console.log(this.addDocumentForm.value);
+      const formData = new FormData();
+      formData.append('file', this.addDocumentForm.get('document').value);
+      this.documentService.uploadDocument(formData).subscribe((res) => {
+        console.log(res);
+        alert('SUCCESS !!');
+      });
     }
   }
 

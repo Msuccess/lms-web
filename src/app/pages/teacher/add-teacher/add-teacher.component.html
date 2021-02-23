@@ -17,29 +17,13 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="col-sm-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Class" formControlName="class"
-                  [ngClass]="{'is-invalid': formControls.class.errors && submitted}">
-                <div *ngIf="submitted && formControls.class.errors" class="invalid-feedback">
-                  <div *ngIf="formControls.class.errors.required">
-                    Please enter your class.
-                  </div>
-                </div>
-              </div>
-            </div> -->
+
             <div class="col-sm-6">
               <div class="form-group fill">
                 <div class="input-group">
-                  <input class="form-control" name="dp" placeholder="Date Of Birth" formControlName="dateOfBirth"
-                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                  <input type="date" class="form-control" name="dp" placeholder="Date Of Birth"
+                    formControlName="dateOfBirth"
                     [ngClass]="{'is-invalid': formControls.dateOfBirth.errors && submitted}">
-                  <div class="input-group-append">
-                    <a href="javascript:0;" class="btn btn-outline-secondary calendar" (click)="d.toggle()"
-                      type="button">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-                    </a>
-                  </div>
                   <div *ngIf="submitted && formControls.dateOfBirth.errors" class="invalid-feedback">
                     <div *ngIf="formControls.dateOfBirth.errors.required">
                       Please choose your Date Of Birth.
@@ -72,11 +56,17 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <select class="form-control" formControlName="gender" placeholder="Select Sex">
-                  <option selected>Select Sex</option>
+                <select name="select" class="form-control form-control-default" formControlName="gender"
+                  [ngClass]="{'is-invalid': formControls.gender.errors && submitted}">
+                  <option value="opt1">Select One Value Only</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
+                <div *ngIf="submitted && formControls.gender.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.gender.errors.required">
+                    Please Select your Gender.
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -93,7 +83,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Password" formControlName="password"
+                <input type="password" class="form-control" placeholder="Password" formControlName="password"
                   [ngClass]="{'is-invalid': formControls.password.errors && submitted}">
                 <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
                   <div *ngIf="formControls.password.errors.required">
@@ -106,7 +96,7 @@
         </div>
         <div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
           <!-- <app-button [buttonType]="'submit'" (clicked)="onSubmit()" [isDisabled]="loading|async">Sign Up</app-button> -->
         </div>
 
