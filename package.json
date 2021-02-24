@@ -67,6 +67,7 @@
     "ngx-color-picker": "^9.1.0",
     "ngx-currency": "^2.3.3",
     "ngx-custom-validators": "^9.1.0",
+    "ngx-dropzone": "^3.0.0",
     "ngx-lightbox": "^2.1.2",
     "ngx-owl-carousel-o": "^3.0.1",
     "ngx-perfect-scrollbar": "^8.0.0",

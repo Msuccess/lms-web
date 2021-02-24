@@ -30,12 +30,15 @@
               </div>
             </div>
             <div class="col-sm-6">
-              <div class="form-group fill">
-                <input type="text" class="form-control" placeholder="Related Classes" formControlName="relatedClass"
-                  [ngClass]="{'is-invalid': formControls.relatedClass.errors && submitted}">
-                <div *ngIf="submitted && formControls.relatedClass.errors" class="invalid-feedback">
-                  <div *ngIf="formControls.relatedClass.errors.required">
-                    Please Choose related classes.
+              <div class="form-group">
+                <select name="select" class="form-control form-control-default" formControlName="userClass"
+                  [ngClass]="{'is-invalid': formControls.userClass.errors && submitted}">
+                  <option value="opt1">Select One Value Only</option>
+                  <option *ngFor="let class of classList" value="{{class.id}}">{{class.className}}</option>
+                </select>
+                <div *ngIf="submitted && formControls.userClass.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.userClass.errors.required">
+                    Please Select your class.
                   </div>
                 </div>
               </div>
@@ -54,7 +57,14 @@
             </div>
             <div class="col-sm-12">
               <div class="form-group">
-                <!-- <file-upload [control]="fileUploadControl" formControlName="document"></file-upload> -->
+                <!-- <file-upload fileslimit="1" formControlName="document"></file-upload> -->
+                <ngx-dropzone (change)="onSelect($event)" [multiple]='false'
+                  accept=".doc,.docx.pdf,.xls,.xlsx,.ppt,.pptx,.txt,.odx">
+                  <ngx-dropzone-label>Click to upload document or Just drop it here!</ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
               </div>
             </div>
 

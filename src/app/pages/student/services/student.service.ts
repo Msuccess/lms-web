@@ -15,7 +15,7 @@ export class StudentService {
   }
 
   public getAllStudents(): Observable<any> {
-    return this.httpClient.get(this.apiEndpoint.API_ADD_STUDENT).pipe(
+    return this.httpClient.get(this.apiEndpoint.API_STUDENT).pipe(
       catchError((err) => {
         return throwError(err);
       })
@@ -24,7 +24,7 @@ export class StudentService {
 
   public getStudentById(StudentID: string): Observable<any> {
     return this.httpClient
-      .get(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`)
+      .get(`${this.apiEndpoint.API_STUDENT}${StudentID}`)
       .pipe(
         catchError((err) => {
           return throwError(err);
@@ -33,20 +33,18 @@ export class StudentService {
   }
 
   public addStudent(StudentInfo: AuthModel): Observable<any> {
-    return this.httpClient
-      .post(this.apiEndpoint.API_ADD_STUDENT, StudentInfo)
-      .pipe(
-        catchError((err) => {
-          return throwError(err);
-        })
-      );
+    return this.httpClient.post(this.apiEndpoint.API_STUDENT, StudentInfo).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
   }
   public updateStudent(
     StudentInfo: AuthModel,
     StudentID: string
   ): Observable<any> {
     return this.httpClient
-      .put(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`, StudentInfo)
+      .put(`${this.apiEndpoint.API_STUDENT}${StudentID}`, StudentInfo)
       .pipe(
         catchError((err) => {
           return throwError(err);
@@ -55,7 +53,7 @@ export class StudentService {
   }
   public deleteStudent(StudentID: string): Observable<any> {
     return this.httpClient
-      .delete(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`)
+      .delete(`${this.apiEndpoint.API_STUDENT}${StudentID}`)
       .pipe(
         catchError((err) => {
           return throwError(err);

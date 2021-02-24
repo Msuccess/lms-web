@@ -81,6 +81,26 @@ const NavigationItems = [
         ],
       },
       {
+        id: 'subject',
+        title: 'Subject',
+        type: 'collapse',
+        icon: 'feather icon-book',
+        children: [
+          {
+            id: 'list-subjects',
+            title: 'Subjects',
+            type: 'item',
+            url: '/app/subject/list',
+          },
+          {
+            id: 'add-subject',
+            title: 'Add Subject',
+            type: 'item',
+            url: '/app/subject/add',
+          },
+        ],
+      },
+      {
         id: 'class',
         title: 'Class',
         type: 'collapse',

@@ -1,0 +1,30 @@
+<form [formGroup]="newSubjectForm" (submit)="onSubmit()">
+
+  <div class="row btn-page">
+    <div class="col-md-6 col-sm-12">
+      <app-card cardTitle="{{action}} Subject" cardClass="card-datatable" [options]="false">
+        <div>
+          <div class="row col-12">
+            <div class="col-12">
+              <div class="form-group fill">
+                <input type="text" class="form-control" placeholder="Subject Name" formControlName="subjectName"
+                  [ngClass]="{'is-invalid': formControls.subjectName.errors && submitted}">
+                <div *ngIf="submitted && formControls.subjectName.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.subjectName.errors.required">
+                    Please enter your Subject Name.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+
+      </app-card>
+    </div>
+  </div>
+
+</form>

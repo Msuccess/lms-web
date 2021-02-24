@@ -35,6 +35,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'subject',
+    loadChildren: () =>
+      import('./subjects/subjects.module').then((m) => m.SubjectsModule),
+  },
+  {
     path: 'settings',
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),

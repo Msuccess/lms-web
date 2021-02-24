@@ -27,6 +27,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { ToastrService } from 'ngx-toastr';
 
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
@@ -43,6 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ModalModule,
     ClickOutsideModule,
     LightboxModule,
+    NgxDropzoneModule,
   ],
   exports: [
     CommonModule,
@@ -62,6 +65,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     GalleryComponent,
     ButtonComponent,
     NotifyComponent,
+    NgxDropzoneModule,
   ],
   declarations: [
     DataFilterPipe,

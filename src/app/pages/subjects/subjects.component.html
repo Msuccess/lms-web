@@ -1,0 +1,34 @@
+<div class="row btn-page">
+  <div class="col-sm-12">
+    <app-card cardTitle="Subject List" cardClass="card-datatable" [options]="false">
+      <div class="row align-items-center m-l-0">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6 text-right">
+          <button class="btn btn-success btn-sm btn-round has-ripple" [routerLink]="['/app/class/add']"><i
+              class="feather icon-plus"></i> Add Subject</button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table id="report-table" class="table table-bordered table-striped mb-0 hover" datatable>
+          <thead>
+            <tr>
+              <th class="w-80">Subject Name</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subject of subjectList">
+              <td>{{subject.className}}</td>
+              <td>
+                <a href="javascript:" class="btn btn-info btn-sm" (click)="editSubject(subject.id)">Edit</a>
+                <a href="javascript:" class="btn btn-danger btn-sm"
+                  (click)="deleteSubject(subject.id,subject.className)">Delete</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

@@ -14,9 +14,12 @@ export class AuthEndPoints {
 
 export class ApiEndPoints {
   API_BASE_URL = environment.baseUrl;
-  API_ADD_CLASS = this.API_BASE_URL + 'users-class/';
-  API_ADD_TEACHER = this.API_BASE_URL + 'teacher/';
-  API_ADD_STUDENT = this.API_BASE_URL + 'student/';
+  API_CLASS = this.API_BASE_URL + 'users-class/';
+  API_SUBJECT = this.API_BASE_URL + 'subjects/';
+  API_TEACHER = this.API_BASE_URL + 'teacher/';
+  API_STUDENT = this.API_BASE_URL + 'student/';
+  API_DOCUMENT = this.API_BASE_URL + 'document/';
   API_UPLOAD_DOCUMENT = this.API_BASE_URL + 'upload/document/';
+  API_COURSE = this.API_BASE_URL + 'course/';
   API_UPLOAD_COURSE = this.API_BASE_URL + 'upload/course/';
 }

@@ -15,7 +15,7 @@ export class TeacherService {
   }
 
   public getAllTeachers(): Observable<any> {
-    return this.httpClient.get(this.apiEndpoint.API_ADD_TEACHER).pipe(
+    return this.httpClient.get(this.apiEndpoint.API_TEACHER).pipe(
       catchError((err) => {
         return throwError(err);
       })
@@ -24,7 +24,7 @@ export class TeacherService {
 
   public getTeacherById(teacherID: string): Observable<any> {
     return this.httpClient
-      .get(`${this.apiEndpoint.API_ADD_TEACHER}${teacherID}`)
+      .get(`${this.apiEndpoint.API_TEACHER}${teacherID}`)
       .pipe(
         catchError((err) => {
           return throwError(err);
@@ -33,20 +33,18 @@ export class TeacherService {
   }
 
   public addTeacher(teacherInfo: AuthModel): Observable<any> {
-    return this.httpClient
-      .post(this.apiEndpoint.API_ADD_TEACHER, teacherInfo)
-      .pipe(
-        catchError((err) => {
-          return throwError(err);
-        })
-      );
+    return this.httpClient.post(this.apiEndpoint.API_TEACHER, teacherInfo).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
   }
   public updateTeacher(
     teacherInfo: AuthModel,
     teacherId: string
   ): Observable<any> {
     return this.httpClient
-      .put(`${this.apiEndpoint.API_ADD_TEACHER}${teacherId}`, teacherInfo)
+      .put(`${this.apiEndpoint.API_TEACHER}${teacherId}`, teacherInfo)
       .pipe(
         catchError((err) => {
           return throwError(err);
@@ -55,7 +53,7 @@ export class TeacherService {
   }
   public deleteTeacher(teacherId: string): Observable<any> {
     return this.httpClient
-      .delete(`${this.apiEndpoint.API_ADD_TEACHER}${teacherId}`)
+      .delete(`${this.apiEndpoint.API_TEACHER}${teacherId}`)
       .pipe(
         catchError((err) => {
           return throwError(err);

@@ -3,6 +3,6 @@ export class DocumentModel {
   title: string;
   subject: string;
   description: string;
-  relatedClass: [];
-  document: string;
+  userClass: string;
+  documentUrl: string;
 }
