@@ -1,8 +1,8 @@
-export class CourseModule {
+export class CourseModel {
   id: string;
   title: string;
   subject: string;
   description: string;
   relatedClass: [];
-  course: string;
+  courseUrl: string;
 }

@@ -85,7 +85,7 @@ export class AddSubjectComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/app/class/list']);
+    this.router.navigate(['/app/subject/list']);
   }
 
   checkEditAction() {

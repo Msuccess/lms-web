@@ -4,7 +4,7 @@
       <div class="row align-items-center m-l-0">
         <div class="col-sm-6"></div>
         <div class="col-sm-6 text-right">
-          <button class="btn btn-success btn-sm btn-round has-ripple" [routerLink]="['/app/class/add']"><i
+          <button class="btn btn-success btn-sm btn-round has-ripple" [routerLink]="['/app/subject/add']"><i
               class="feather icon-plus"></i> Add Subject</button>
         </div>
       </div>
@@ -18,11 +18,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let subject of subjectList">
-              <td>{{subject.className}}</td>
+              <td>{{subject.subjectName}}</td>
               <td>
                 <a href="javascript:" class="btn btn-info btn-sm" (click)="editSubject(subject.id)">Edit</a>
                 <a href="javascript:" class="btn btn-danger btn-sm"
-                  (click)="deleteSubject(subject.id,subject.className)">Delete</a>
+                  (click)="deleteSubject(subject.id,subject.subjectName)">Delete</a>
               </td>
             </tr>
 

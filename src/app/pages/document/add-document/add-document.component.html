@@ -19,12 +19,15 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="form-group fill">
-                <input type="email" class="form-control" placeholder="Subject" formControlName="subject"
+              <div class="form-group">
+                <select name="select" class="form-control form-control-default" formControlName="subject"
                   [ngClass]="{'is-invalid': formControls.subject.errors && submitted}">
+                  <option value="opt1">Select One Value Only</option>
+                  <option *ngFor="let subject of subjectList" value="{{subject.id}}">{{subject.subjectName}}</option>
+                </select>
                 <div *ngIf="submitted && formControls.subject.errors" class="invalid-feedback">
                   <div *ngIf="formControls.subject.errors.required">
-                    Please choose document subject.
+                    Please Select your Subject.
                   </div>
                 </div>
               </div>
@@ -43,21 +46,9 @@
                 </div>
               </div>
             </div>
+
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control" formControlName="description"
-                  placeholder="Brief Description About the This document"
-                  [ngClass]="{'is-invalid': formControls.description.errors && submitted}"></textarea>
-                <div *ngIf="submitted && formControls.description.errors" class="invalid-feedback">
-                  <div *ngIf="formControls.description.errors.required">
-                    Please Choose related classes.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <!-- <file-upload fileslimit="1" formControlName="document"></file-upload> -->
                 <ngx-dropzone (change)="onSelect($event)" [multiple]='false'
                   accept=".doc,.docx.pdf,.xls,.xlsx,.ppt,.pptx,.txt,.odx">
                   <ngx-dropzone-label>Click to upload document or Just drop it here!</ngx-dropzone-label>
