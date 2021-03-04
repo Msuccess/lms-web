@@ -1,1 +1,59 @@
-<p>update-personal-info works!</p>
+<app-card [hidHeader]="true" cardClass="mb-0" blockClass="d-flex align-items-center justify-content-between">
+    <h5 class="mb-0">Edit Personal details</h5>
+    <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse"
+        data-target=".pro-det-edit" aria-expanded="true" aria-controls="pro-det-edit-1 pro-det-edit-2"
+        (click)="this.editProfile = !this.editProfile;">
+        <i class="feather icon-x"></i>
+    </button>
+</app-card>
+<app-card [hidHeader]="true" blockClass="border-top pro-det-edit collapse show">
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label font-weight-bolder">Full Name</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Full Name" value="Lary Doe">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label font-weight-bolder">Gender</label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"
+                    checked>
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label font-weight-bolder">Birth Date</label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" value="1994-12-16">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label font-weight-bolder">Martail Status</label>
+        <div class="col-sm-9">
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Select Marital Status</option>
+                <option>Married</option>
+                <option selected>Unmarried</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label font-weight-bolder">Location</label>
+        <div class="col-sm-9">
+            <textarea
+                class="form-control">4289 Calvin Street,  Baltimore, near MD Tower Maryland, Maryland (21201)</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <button type="button" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</app-card>
