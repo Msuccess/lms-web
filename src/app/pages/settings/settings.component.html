@@ -1,5 +1,49 @@
 <div class="tab-pane fade show">
   <div class="merge-card">
+    <app-card [hidHeader]="true" cardClass="mb-0" blockClass="d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Personal details</h5>
+      <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse"
+        data-target=".pro-det-edit" aria-expanded="false" aria-controls="pro-det-edit-1 pro-det-edit-2">
+        <i class="feather icon-edit"></i>
+      </button>
+    </app-card>
+    <ng-container>
+      <app-view-personal-info></app-view-personal-info>
+    </ng-container>
+    <ng-container>
+      <app-update-personal-info></app-update-personal-info>
+    </ng-container>
+
+
+    <app-card [hidHeader]="true" cardClass="mb-0" blockClass="d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Contact Information</h5>
+      <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse"
+        data-target=".pro-det-edit" aria-expanded="false" aria-controls="pro-det-edit-1 pro-det-edit-2">
+        <i class="feather icon-edit"></i>
+      </button>
+    </app-card>
+    <ng-container>
+      <app-view-contact-info></app-view-contact-info>
+    </ng-container>
+    <ng-container>
+      <app-update-contact-info></app-update-contact-info>
+    </ng-container>
+
+
+
+    <app-card [hidHeader]="true" cardClass="mb-0" blockClass="d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Password Reset</h5>
+      <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse"
+        data-target=".pro-det-edit" aria-expanded="false" aria-controls="pro-det-edit-1 pro-det-edit-2">
+        <i class="feather icon-edit"></i>
+      </button>
+    </app-card>
+    <ng-container>
+      <app-view-change-password></app-view-change-password>
+    </ng-container>
+    <ng-container>
+      <app-update-password></app-update-password>
+    </ng-container>
 
   </div>
 </div>

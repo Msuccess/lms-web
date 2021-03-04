@@ -179,7 +179,6 @@ export class TokenStorage {
     } else {
       sessionStorage.setItem('validTo', validTo);
     }
-
     return this;
   }
 
