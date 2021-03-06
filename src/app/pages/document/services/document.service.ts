@@ -35,53 +35,31 @@ export class DocumentService {
       );
   }
 
-  // public addStudent(StudentInfo: AuthModel): Observable<any> {
-  //   return this.httpClient
-  //     .post(this.apiEndpoint.API_ADD_STUDENT, StudentInfo)
-  //     .pipe(
-  //       catchError((err) => {
-  //         return throwError(err);
-  //       })
-  //     );
-  // }
+  public getAllDocuments(): Observable<any> {
+    return this.httpClient.get(this.apiEndpoint.API_DOCUMENT).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+  }
 
-  // public getAllDocuments(): Observable<any> {
-  //   return this.httpClient.get(this.apiEndpoint.API_ADD_STUDENT).pipe(
-  //     catchError((err) => {
-  //       return throwError(err);
-  //     })
-  //   );
-  // }
+  public getDocumentById(documentID: string): Observable<any> {
+    return this.httpClient
+      .get(`${this.apiEndpoint.API_DOCUMENT}${documentID}`)
+      .pipe(
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
 
-  // public getStudentById(StudentID: string): Observable<any> {
-  //   return this.httpClient
-  //     .get(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`)
-  //     .pipe(
-  //       catchError((err) => {
-  //         return throwError(err);
-  //       })
-  //     );
-  // }
-
-  // public updateStudent(
-  //   StudentInfo: AuthModel,
-  //   StudentID: string
-  // ): Observable<any> {
-  //   return this.httpClient
-  //     .put(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`, StudentInfo)
-  //     .pipe(
-  //       catchError((err) => {
-  //         return throwError(err);
-  //       })
-  //     );
-  // }
-  // public deleteStudent(StudentID: string): Observable<any> {
-  //   return this.httpClient
-  //     .delete(`${this.apiEndpoint.API_ADD_STUDENT}${StudentID}`)
-  //     .pipe(
-  //       catchError((err) => {
-  //         return throwError(err);
-  //       })
-  //     );
-  // }
+  public deleteDocument(documentId: string): Observable<any> {
+    return this.httpClient
+      .delete(`${this.apiEndpoint.API_DOCUMENT}${documentId}`)
+      .pipe(
+        catchError((err) => {
+          return throwError(err);
+        })
+      );
+  }
 }

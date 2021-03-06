@@ -57,6 +57,7 @@ export class AddSubjectComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Updated Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.newSubjectForm.reset();
         this.router.navigate(['/app/subject/list']);
       },
@@ -75,6 +76,7 @@ export class AddSubjectComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Added Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.newSubjectForm.reset();
       },
       (error: any) => {

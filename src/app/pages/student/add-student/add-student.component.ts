@@ -80,6 +80,7 @@ export class AddStudentComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Updated Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.registrationForm.reset();
         this.router.navigate(['/app/student/list']);
       },
@@ -98,6 +99,7 @@ export class AddStudentComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Added Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.registrationForm.reset();
       },
       (error: any) => {

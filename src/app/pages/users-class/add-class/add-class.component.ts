@@ -53,6 +53,7 @@ export class AddClassComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Updated Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.newClassForm.reset();
         this.router.navigate(['/app/class/list']);
       },
@@ -71,6 +72,7 @@ export class AddClassComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Added Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.newClassForm.reset();
       },
       (error: any) => {

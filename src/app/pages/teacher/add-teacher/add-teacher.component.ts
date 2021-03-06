@@ -75,6 +75,7 @@ export class AddTeacherComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Updated Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.registrationForm.reset();
         this.router.navigate(['/app/teacher/list']);
       },
@@ -93,6 +94,7 @@ export class AddTeacherComponent implements OnInit {
       (res: any) => {
         this.toastrService.success('Success', 'Added Successfully');
         this.loading.next(false);
+        this.submitted = false;
         this.registrationForm.reset();
       },
       (error: any) => {
